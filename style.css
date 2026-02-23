@@ -132,3 +132,60 @@ footer {
     background-color: var(--accent-hover);
     transform: translateY(-2px);
 }
+
+/* =========================================
+   VERSION MOBILE (RESPONSIVE)
+   ========================================= */
+
+/* Par défaut (PC), on cache le bouton hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* QUAND L'ÉCRAN FAIT MOINS DE 768 PX (Tablettes & Mobiles) */
+@media (max-width: 768px) {
+
+    /* 1. On affiche le bouton hamburger */
+    .hamburger {
+        display: block;
+        margin-left: auto; /* Le pousse à droite si besoin */
+    }
+
+    /* 2. On transforme la liste des liens */
+    .nav-links {
+        display: none; /* Caché par défaut */
+        position: absolute;
+        top: var(--nav-height); /* Juste en dessous du header */
+        left: 0;
+        width: 100%;
+        background-color: rgba(15, 23, 42, 0.98); /* Fond presque opaque */
+        flex-direction: column; /* Liste verticale */
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+    }
+
+    /* 3. Classe qui sera ajoutée par le JS pour ouvrir le menu */
+    .nav-links.mobile-menu-open {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem; /* Liens plus gros pour les doigts */
+        display: block;
+    }
+
+    /* Animation d'ouverture douce */
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}

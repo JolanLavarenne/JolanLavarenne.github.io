@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV | Portfolio Jolan Lavarenne</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .cv-section {
+            padding-top: calc(var(--nav-height) + 40px);
+            padding-bottom: 60px;
+        }
+        .cv-actions {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Sidebar */
+        .cv-sidebar {
+            background-color: #162032;
+            padding: 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin: 0 auto 10px auto;
+            background-color: var(--bg-color);
+            display: block;
+        }
+        .sidebar-block h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .contact-list li {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-list i { color: var(--accent); width: 20px; text-align: center; }
+        .skill-list li, .hobby-list li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 15px;
+        }
+        .skill-list li::before, .hobby-list li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        /* Main Content */
+        .cv-main { padding: 40px; }
+        .cv-header-text {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+        .cv-header-text h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        .cv-header-text h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .main-block { margin-bottom: 35px; }
+        .main-block h3 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .main-block h3 i { color: var(--accent); }
+        .about-text { color: var(--text-secondary); font-size: 0.95rem; text-align: justify; }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255,255,255,0.1);
+            margin-bottom: 25px;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+            top: 5px;
+        }
+        .job-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+        .job-company { font-size: 0.9rem; color: var(--accent); margin-bottom: 5px; display: block; font-weight: 500; }
+        .job-date { float: right; font-size: 0.85rem; color: var(--text-secondary); font-weight: 400; }
+        .job-details li { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 5px; list-style-type: disc; margin-left: 20px; }
+
+        /* --- STYLES DE LA MODALE (LETTRE DE MOTIVATION) --- */
+        .modal {
+            display: none; /* Caché par défaut */
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); /* Fond noir transparent */
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto; /* 5% du haut et centré */
+            padding: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+            position: relative;
+            color: var(--text-primary);
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close {
+            color: var(--text-secondary);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            color: var(--accent);
+        }
+
+        .letter-body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            white-space: pre-line; /* Conserve les sauts de ligne */
+            text-align: justify;
+        }
+
+        .letter-header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+
+        .letter-header h2 {
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 850px) {
+            .cv-container { grid-template-columns: 1fr; }
+            .cv-sidebar { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
+            .contact-list li { justify-content: center; }
+            .job-date { float: none; display: block; margin-bottom: 5px; }
+            .modal-content { width: 95%; margin: 10% auto; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="cv-section">
+        <div class="container">
+            
+            <div class="cv-actions">
+                <a href="fichiers/cv_jolan_lavarenne.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Télécharger le CV
+                </a>
+                <button id="btnOpenModal" class="btn btn-secondary" style="cursor: pointer;">
+                    <i class="fas fa-envelope-open-text"></i> Lettre de Motivation
+                </button>
+            </div>
+
+            <div class="cv-container">
+                <aside class="cv-sidebar">
+                    <img src="images/portrait_placeholder.jpg" alt="Photo de profil" class="profile-photo">
+
+                    <div class="sidebar-block">
+                        <h3>Contact</h3>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-phone-alt"></i> 06 19 83 04 92</li>
+                            <li><i class="fas fa-envelope"></i> Jolan.pro@hotmail.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Amiens</li>
+                            <li><i class="fas fa-globe"></i> jolanlavarenne.github.io</li>
+                            <li><i class="fas fa-car"></i> Permis B</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>Compétences</h3>
+                        <ul class="skill-list">
+                            <li>Admin Windows/Linux</li>
+                            <li>Virtualisation</li>
+                            <li>Scripting (Batch, PowerShell)</li>
+                            <li>Diagnostic et Dépannage</li>
+                            <li>Gestion de sauvegardes</li>
+                            <li>Configuration de postes</li>
+                            <li>Commandes Système</li>
+                            <li>Bases de données (SQL)</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>Langages</h3>
+                        <ul class="skill-list">
+                            <li>Français (Langue maternelle)</li>
+                            <li>Anglais (B2)</li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-block">
+                        <h3>Loisirs</h3>
+                        <ul class="hobby-list">
+                            <li>Sport</li>
+                            <li>Création de contenu</li>
+                            <li>Jeux de Stratégie</li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <div class="cv-main">
+                    <div class="cv-header-text">
+                        <h1>Jolan Lavarenne</h1>
+                        <h2>Étudiant en Informatique</h2>
+                    </div>
+
+                    <div class="main-block">
+                        <h3><i class="fas fa-user"></i> A Propos</h3>
+                        <p class="about-text">
+                            Fort de plusieurs expériences professionnelles, j'ai choisi de me reconvertir dans l'informatique. Actuellement étudiant en BTS SIO, option SISR, je recherche un stage pour développer mes compétences en administration des systèmes et réseaux du 01/06/2026 au 26/06/2026.
+                        </p>
+                    </div>
+
+                    <div class="main-block">
+                        <h3><i class="fas fa-briefcase"></i> Expériences Professionnelles</h3>
+                        
+                        <div class="timeline-item">
+                            <span class="job-date">2025</span>
+                            <div class="job-title">Agent de moisson</div>
+                            <span class="job-company">Ceresia - Chambry</span>
+                            <ul class="job-details">
+                                <li>Accueil des agriculteurs et réception des bennes</li>
+                                <li>Nettoyage et entretien des installations de stockage</li>
+                                <li>Conduite d'engins de manutention</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="job-date">2023 - 2024</span>
+                            <div class="job-title">Agent de tri</div>
+                            <span class="job-company">Amazon - Gauchy</span>
+                            <ul class="job-details">
+                                <li>Réception, tri et répartition des colis</li>
+                                <li>Chargement et déchargement des camions</li>
+                                <li>Respect des cadences</li>
+                            </ul>
+                        </div>
+
+                        <div class="timeline-item">
+                            <span class="job-date">2021 - 2022</span>
+                            <div class="job-title">Agent de prévention et de sécurité</div>
+                            <span class="job-company">FSI SECURITE - Charmes</span>
+                            <ul class="job-details">
+                                <li>Réalisation de rondes de surveillance</li>
+                                <li>Contrôle d'accès et filtrage des entrées/sorties</li>
+                                <li>Rédaction des rapports d'incidents</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main-block">
+                        <h3><i class="fas fa-graduation-cap"></i> Diplômes</h3>
+                        <div class="timeline-item">
+                            <span class="job-date">2025 - 2027</span>
+                            <div class="job-title">BTS Services informatiques aux organisations</div>
+                            <span class="job-company">Option SISR | Lycée Saint-Rémi - Amiens</span>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="job-date">2019 - 2020</span>
+                            <div class="job-title">Bac STMG : management, droit et gestion</div>
+                            <span class="job-company">Option gestion finance | Lycée Gay Lussac - Chauny</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="lmModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="letter-header">
+                <h2>Lettre de Motivation</h2>
+                <p>Recherche de stage : 01/06/2026 au 26/06/2026</p>
+            </div>
+            <div class="letter-body">
+                Madame, Monsieur,
+
+                Actuellement étudiant en 1ère année de BTS SIO (Services Informatiques aux Organisations), option Solutions d’Infrastructure et Systèmes et Réseaux au Lycée Saint Rémi, je suis à la recherche d’un stage de 4 semaines, du 01/06/2026 au 26/06/2026.
+
+                Passionné par l’administration des systèmes et la cybersécurité, j’ai choisi l’option SISR afin de me spécialiser dans la gestion et la maintenance des parcs informatiques. Ce stage représente pour moi l’opportunité de mettre en pratique mes connaissances théoriques et de développer mes compétences au sein d’une infrastructure informatique.
+
+                Au cours de ma formation, j'ai acquis des compétences techniques variées allant de l'administration système (Windows/Linux) et la configuration réseau, à la virtualisation et la sensibilisation à la cybersécurité.
+
+                Au-delà de mes compétences techniques, j'accorde une grande importance au savoir-être professionnel. De nature calme et sérieux, je suis quelqu'un de ponctuel et de respectueux.
+
+                Dans l’attente d’un échange, je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations distinguées.
+
+                <strong>Jolan Lavarenne</strong>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jolan Lavarenne - Portfolio BTS SIO.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    
+    <script>
+        // Récupérer les éléments
+        var modal = document.getElementById("lmModal");
+        var btn = document.getElementById("btnOpenModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Ouvrir la modale au clic
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Fermer au clic sur la croix
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Fermer au clic en dehors de la fenêtre
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

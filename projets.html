@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets | Portfolio Jolan Lavarenne</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* STYLES SPÉCIFIQUES PAGE PROJETS */
+        .projects-header {
+            padding-top: calc(var(--nav-height) + 40px);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-color);
+            font-weight: 600;
+        }
+
+        /* GRILLE */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px;
+            padding-bottom: 80px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            opacity: 0.7;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .btn-card {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            color: var(--accent);
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-card:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+        }
+        
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="container">
+        
+        <section class="projects-header">
+            <h1>Mes Réalisations</h1>
+            <p style="color: var(--text-secondary);">Retrouvez l'ensemble de mes travaux pratiques, dirigés et certifications.</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">Tout</button>
+                <button class="filter-btn" onclick="filterProjects('tp')">TPs</button>
+                <button class="filter-btn" onclick="filterProjects('td')">TDs</button>
+                <button class="filter-btn" onclick="filterProjects('certif')">Certifications</button>
+            </div>
+        </section>
+
+        <div class="projects-grid">
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-desktop"></i></div>
+                <h3>TP 1 : Configuration PC</h3>
+                <p>L'objectif était de réaliser la configuration d'un PC en suivant un cahier des charges détaillé.</p>
+                <div class="tags"><span class="tag">Hardware</span><span class="tag">Compatibilité</span></div>
+                <a href="tps/tp1.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-server"></i></div>
+                <h3>TP 2 : Machine Virtuelle</h3>
+                <p>Installation de VM tiny10. Optimisation des ressources systèmes.</p>
+                <div class="tags"><span class="tag">Virtualisation</span><span class="tag">Tiny10</span></div>
+                <a href="tps/tp2.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-terminal"></i></div>
+                <h3>TP 3 : Explorateurs de l'invite de commandes</h3>
+                <p>Série d'actions via CMD pour naviguer dans l'arborescence, manipuler des fichiers/dossiers et obtenir des informations système.</p>
+                <div class="tags"><span class="tag">CMD</span><span class="tag">Système</span></div>
+                <a href="tps/tp3.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-code"></i></div>
+                <h3>TP 4 : Powershell</h3>
+                <p>Comprendre l'intérêt de la ligne de commande dans l'administration et le développement.</p>
+                <div class="tags"><span class="tag">PowerShell</span><span class="tag">Scripting</span></div>
+                <a href="tps/tp4.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-save"></i></div>
+                <h3>TP 5 : Script de Sauvegarde Personnalisée en Batch</h3>
+                <p>Création d'un script Batch pour une sauvegarde personnalisée de fichiers, paramétrable par l'utilisateur et générant un rapport détaillé.</p>
+                <div class="tags"><span class="tag">Batch</span><span class="tag">Sauvegarde</span></div>
+                <a href="tps/tp5.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>TP 5.1 : Analyse du Système et réseau</h3>
+                <p>Utilisation des commandes ipconfig, whoami, systeminfo, hostname et getmac.</p>
+                <div class="tags"><span class="tag">Réseau</span><span class="tag">Commandes</span></div>
+                <a href="tps/tp51.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-wifi"></i></div>
+                <h3>TP 5.2 : Diagnostic et Réparation Réseau</h3>
+                <p>Analyse et correction d'une panne Internet sur poste Windows via outils réseau.</p>
+                <div class="tags"><span class="tag">Dépannage</span><span class="tag">Diagnostic</span></div>
+                <a href="tps/tp52.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fas fa-life-ring"></i></div>
+                <h3>TP 6 : Commandes CMD Support Informatique</h3>
+                <p>Découverte et utilisation des commandes CMD essentielles pour le support informatique.</p>
+                <div class="tags"><span class="tag">Support</span><span class="tag">Maintenance</span></div>
+                <a href="tps/tp6.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+             <article class="project-card" data-category="tp">
+                <div class="card-icon"><i class="fab fa-linux"></i></div>
+                <h3>TP Virtualisation : Ubuntu</h3>
+                <p>Installation et configuration d'une distribution Linux - Ubuntu. Gestion des paquets, environnement graphique et addons VirtualBox.</p>
+                <div class="tags"><span class="tag">Linux</span><span class="tag">Ubuntu</span></div>
+                <a href="tps/tpubuntu.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+
+            <article class="project-card" data-category="td">
+                <div class="card-icon"><i class="fas fa-database"></i></div>
+                <h3>TD 1 : Base de données</h3>
+                <p>Exercices pour comprendre les bases de données.</p>
+                <div class="tags"><span class="tag">SQL</span><span class="tag">BDD</span></div>
+                <a href="tds/td1.docx" class="btn-card" download>Télécharger</a>
+            </article>
+
+            <article class="project-card" data-category="td">
+                <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>TD 2 : Schéma relationnel</h3>
+                <p>Conception de schéma relationnel suivant des exemples.</p>
+                <div class="tags"><span class="tag">MCD/MLD</span><span class="tag">Conception</span></div>
+                <a href="tds/td2.docx" class="btn-card" download>Télécharger</a>
+            </article>
+
+
+            <article class="project-card" data-category="certif">
+                <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Certification SecNumacadémie</h3>
+                <p>Certification officielle en cybersécurité : bonnes pratiques, sécurité numérique, protection des données et sensibilisation aux risques.</p>
+                <div class="tags"><span class="tag">ANSSI</span><span class="tag">Sécurité</span></div>
+                <a href="tps/secnum.pdf" class="btn-card" download>Télécharger</a>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jolan Lavarenne - Portfolio BTS SIO.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script>
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                card.style.display = 'none';
+                card.classList.remove('fade-in');
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.classList.add('fade-in'), 10);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

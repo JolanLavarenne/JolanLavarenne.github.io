@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique | Portfolio Jolan Lavarenne</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .veille-header {
+            padding-top: calc(var(--nav-height) + 40px);
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .veille-intro {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* --- SECTION OUTILS --- */
+        .tools-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .tool-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .tool-badge i {
+            color: var(--accent);
+        }
+
+        /* --- TIMELINE DES ACTUALITÉS --- */
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        /* Ligne verticale centrale */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 20px; /* Alignement gauche pour mobile par défaut */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(56, 189, 248, 0.2);
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            margin-left: 50px; /* Espace pour la ligne */
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateX(5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Point sur la timeline */
+        .news-card::before {
+            content: '';
+            position: absolute;
+            left: -36px; /* Ajustement pour tomber sur la ligne */
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--bg-color);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .news-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tag-news {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .news-source {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-style: italic;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 15px;
+            }
+            .news-card {
+                margin-left: 40px;
+                padding: 20px;
+            }
+            .news-card::before {
+                left: -32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="container">
+        
+        <section class="veille-header">
+            <h1>Veille Technologique</h1>
+            <h2 style="font-size: 1.2rem; color: var(--accent); margin-top: 10px; font-weight: 400;">
+                Sujet : L'IA au service de la Cybersécurité & le modèle Zero Trust
+            </h2>
+        </section>
+
+        <div class="veille-intro">
+            <p>
+                Dans le cadre de mon BTS SIO, j'assure une veille régulière sur l'évolution des infrastructures sécurisées. 
+                Je m'intéresse particulièrement à l'impact de l'Intelligence Artificielle sur la détection des menaces 
+                et à l'adoption du modèle "Zero Trust" (ne jamais faire confiance, toujours vérifier) en entreprise.
+            </p>
+        </div>
+
+        <div class="tools-section">
+            <div class="tool-badge">
+                <i class="fas fa-rss"></i> Feedly (Agrégateur)
+            </div>
+            <div class="tool-badge">
+                <i class="fab fa-google"></i> Google Alerts
+            </div>
+            <div class="tool-badge">
+                <i class="fas fa-shield-alt"></i> CERT-FR / ANSSI
+            </div>
+            <div class="tool-badge">
+                <i class="fab fa-linkedin"></i> Experts Cyber (LinkedIn)
+            </div>
+        </div>
+
+        <div class="timeline-container">
+
+            <article class="news-card">
+                <span class="news-date">Février 2026</span>
+                <h3>L'IA Générative : Nouvelle arme des cyberattaquants ?</h3>
+                <div class="news-tags">
+                    <span class="tag-news">IA</span>
+                    <span class="tag-news">Phishing</span>
+                </div>
+                <p>
+                    Les rapports de début 2026 confirment une hausse de 40% des attaques par ingénierie sociale (phishing) générées par des IA. Ces courriels sont désormais indiscernables de ceux écrits par des humains, contournant les filtres classiques. En réponse, les solutions EDR intègrent désormais leurs propres moteurs d'IA pour analyser la sémantique des messages.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : ZDNet / Rapport Cyber Threats 2026
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Janvier 2026</span>
+                <h3>Microsoft Copilot for Security se généralise</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Microsoft</span>
+                    <span class="tag-news">SOC</span>
+                </div>
+                <p>
+                    L'outil d'assistance par IA de Microsoft pour les analystes SOC est désormais déployé massivement. Il permet de résumer des incidents complexes en quelques secondes et de proposer des scripts de remédiation PowerShell automatiquement. Une révolution pour la réactivité des équipes SISR face aux alertes.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : Blog Microsoft Security
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Octobre 2025</span>
+                <h3>Directive NIS 2 : L'heure du bilan</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Législation</span>
+                    <span class="tag-news">Conformité</span>
+                </div>
+                <p>
+                    Un an après son entrée en vigueur, la directive européenne NIS 2 a forcé des milliers d'entreprises à revoir leur architecture réseau. Le modèle "Zero Trust" (segmentation réseau, MFA partout) est devenu le standard technique pour répondre aux exigences de conformité imposées par l'ANSSI.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : ANSSI
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Juin 2025</span>
+                <h3>La fin des mots de passe ? Le Passkey s'impose</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Authentification</span>
+                    <span class="tag-news">FIDO2</span>
+                </div>
+                <p>
+                    Google et Apple annoncent que 60% des connexions se font désormais via "Passkeys" (clés d'accès biométriques). Pour les administrateurs systèmes, cela implique une mise à jour des gestionnaires d'identité (Azure AD, Okta) pour supporter nativement ces protocoles FIDO2 et réduire les risques liés au vol de mots de passe.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : Le Monde Informatique
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Mars 2025</span>
+                <h3>Vulnérabilité critique sur les pare-feux Fortinet</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Faille</span>
+                    <span class="tag-news">Patch</span>
+                </div>
+                <p>
+                    Découverte d'une faille "Zero Day" permettant l'exécution de code à distance sur les VPN SSL Fortigate. Cet événement rappelle l'importance cruciale du "Patch Management" automatisé, une compétence clé du technicien SISR. Les correctifs ont été déployés en moins de 48h par les équipes réactives.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : CERT-FR (Avis de sécurité)
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jolan Lavarenne - Portfolio BTS SIO.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="projets.html">Projets</a></li>
-                <li><a href="cv.html">CV</a></li>
+//              <li><a href="cv.html">CV</a></li>
                 <li><a href="stage-sio1.html">Stage SIO1</a></li>
                 <li><a href="stage-sio2.html">Stage SIO2</a></li>
                 <li><a href="veille.html">Veille</a></li>    
@@ -34,4 +34,5 @@ document.addEventListener("DOMContentLoaded", function() {
             link.classList.add("active");
         }
     });
+
 });

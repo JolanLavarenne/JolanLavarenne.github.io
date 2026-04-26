@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>                | Accueil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Style spécifique pour centrer le contenu de l'accueil */
+        .home-content {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: var(--nav-height);
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="container home-content">
+        <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; display:block; margin-bottom:10px;">Bonjour, je suis</span>
+        
+        <h1 class="main-title">Jolan Lavarenne</h1>
+        <p class="subtitle">Étudiant en BTS SIO</p>
+        
+        <p style="color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; font-size: 1.1rem;">
+            Bienvenue sur mon portfolio. Passionné par l'informatique, je regroupe ici mes projets, mes stages et ma veille technologique.
+        </p>
+        
+        <div style="display: flex; gap: 20px;">
+            <a href="cv.html" class="btn btn-primary">Voir mon CV</a>
+        </div>
+    </main>
+    
+    <footer>© 2026 Jolan Lavarenne - Portfolio BTS SIO</footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>

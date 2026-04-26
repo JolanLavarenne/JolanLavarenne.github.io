@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage SIO2 | Jolan Lavarenne</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Ajustement pour que le contenu ne soit pas caché par le menu fixe */
+        .stage-section {
+            padding-top: calc(var(--nav-height) + 60px);
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        /* Style de la carte "En attente" */
+        .card-future {
+            background-color: var(--card-bg);
+            padding: 60px 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            font-weight: 600;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header></header>
+
+    <main class="container stage-section">
+        
+        <h1>Stage de 2ème Année</h1>
+        <span class="subtitle">BTS SIO - Option SISR</span>
+
+        <div class="card-future">
+            <div style="font-size: 50px; margin-bottom: 20px;">📅</div>
+            
+            <h2 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 20px;">En attente</h2>
+            
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6;">
+                Le stage de deuxième année se déroulera durant l'année scolaire <strong style="color: var(--text-primary);">2026-2027</strong>.
+            </p>
+            
+            <p style="color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6;">
+                Le contenu relatif à cette expérience professionnelle sera disponible ultérieurement.
+            </p>
+            
+            <div>
+                <a href="index.html" class="btn btn-primary">← Retour à l'accueil</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Jolan Lavarenne - Portfolio BTS SIO.</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>

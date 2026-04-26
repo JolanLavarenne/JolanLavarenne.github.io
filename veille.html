@@ -26,6 +26,11 @@
             color: var(--text-secondary);
         }
 
+        .veille-intro p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
         /* --- SECTION OUTILS --- */
         .tools-section {
             display: flex;
@@ -56,14 +61,14 @@
             max-width: 800px;
             margin: 0 auto;
             position: relative;
-            padding-bottom: 80px;
+            padding-bottom: 60px;
         }
 
         /* Ligne verticale centrale */
         .timeline-container::before {
             content: '';
             position: absolute;
-            left: 20px; /* Alignement gauche pour mobile par défaut */
+            left: 20px;
             top: 0;
             bottom: 0;
             width: 2px;
@@ -76,7 +81,7 @@
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 40px;
-            margin-left: 50px; /* Espace pour la ligne */
+            margin-left: 50px;
             position: relative;
             transition: 0.3s;
         }
@@ -91,7 +96,7 @@
         .news-card::before {
             content: '';
             position: absolute;
-            left: -36px; /* Ajustement pour tomber sur la ligne */
+            left: -36px;
             top: 30px;
             width: 14px;
             height: 14px;
@@ -150,6 +155,48 @@
             padding-top: 15px;
         }
 
+        /* --- SECTION SOLUTIONS --- */
+        .solutions-section {
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .solutions-section h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .solutions-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solutions-list li {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .solutions-list li strong {
+            color: var(--text-primary);
+        }
+
+        .solutions-list i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .timeline-container::before {
@@ -161,6 +208,10 @@
             }
             .news-card::before {
                 left: -32px;
+            }
+            .solutions-section {
+                margin: 0 20px 80px 20px;
+                padding: 25px;
             }
         }
     </style>
@@ -174,111 +225,219 @@
         <section class="veille-header">
             <h1>Veille Technologique</h1>
             <h2 style="font-size: 1.2rem; color: var(--accent); margin-top: 10px; font-weight: 400;">
-                Sujet : L'IA au service de la Cybersécurité & le modèle Zero Trust
+                Sujet : L'industrialisation des fuites de données (Data Breaches) 2025-2026
             </h2>
         </section>
 
         <div class="veille-intro">
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary);">
+                Dans le cadre de mon BTS SIO, j'ai choisi de réaliser une veille technologique sur les fuites de données, car c'est une menace en pleine explosion qui touche directement le cœur du système d'information.
+            </p>
             <p>
-                Dans le cadre de mon BTS SIO, j'assure une veille régulière sur l'évolution des infrastructures sécurisées. 
-                Je m'intéresse particulièrement à l'impact de l'Intelligence Artificielle sur la détection des menaces 
-                et à l'adoption du modèle "Zero Trust" (ne jamais faire confiance, toujours vérifier) en entreprise.
+                Je m'intéresse particulièrement aux vecteurs d'attaque modernes (failles d'API, malwares InfoStealers) ainsi qu'aux piratages par rebond ciblant la chaîne d'approvisionnement (Supply Chain) des entreprises.
             </p>
         </div>
 
         <div class="tools-section">
-            <div class="tool-badge">
-                <i class="fas fa-rss"></i> Feedly (Agrégateur)
-            </div>
-            <div class="tool-badge">
-                <i class="fab fa-google"></i> Google Alerts
-            </div>
-            <div class="tool-badge">
-                <i class="fas fa-shield-alt"></i> CERT-FR / ANSSI
-            </div>
-            <div class="tool-badge">
-                <i class="fab fa-linkedin"></i> Experts Cyber (LinkedIn)
-            </div>
+            <div class="tool-badge"><i class="fas fa-rss"></i> Feedly </div>
+            <div class="tool-badge"><i class="fab fa-hacker-news"></i> The Hacker News</div>
+            <div class="tool-badge"><i class="fas fa-shield-alt"></i> CERT-FR / ANSSI</div>
+            <div class="tool-badge"><i class="fas fa-bug"></i> BleepingComputer</div>
         </div>
 
         <div class="timeline-container">
 
             <article class="news-card">
-                <span class="news-date">Février 2026</span>
-                <h3>L'IA Générative : Nouvelle arme des cyberattaquants ?</h3>
+                <span class="news-date">Avril 2026</span>
+                <h3>ANTS : Faille majeure sur une API exposant des millions de Français</h3>
                 <div class="news-tags">
-                    <span class="tag-news">IA</span>
-                    <span class="tag-news">Phishing</span>
+                    <span class="tag-news">Vulnérabilité API</span>
+                    <span class="tag-news">IDOR</span>
+                    <span class="tag-news">Service Public</span>
                 </div>
                 <p>
-                    Les rapports de début 2026 confirment une hausse de 40% des attaques par ingénierie sociale (phishing) générées par des IA. Ces courriels sont désormais indiscernables de ceux écrits par des humains, contournant les filtres classiques. En réponse, les solutions EDR intègrent désormais leurs propres moteurs d'IA pour analyser la sémantique des messages.
+                    L'Agence Nationale des Titres Sécurisés (ANTS) subit une fuite massive. En exploitant une vulnérabilité de type <strong>IDOR (Insecure Direct Object Reference)</strong> sur une API mal sécurisée, des attaquants automatisent l'extraction des données personnelles de 12 à 19 millions d'usagers. Cet incident met en lumière le besoin critique de tests d'intrusion systématiques sur les endpoints d'API.
                 </p>
                 <div class="news-source">
-                    <i class="fas fa-link"></i> Source : ZDNet / Rapport Cyber Threats 2026
+                    <i class="fas fa-link"></i> Source : BleepingComputer / CERT-FR
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Avril 2026</span>
+                <h3>Basic-Fit : 1 million de membres européens touchés</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Data Breach</span>
+                    <span class="tag-news">RGPD</span>
+                </div>
+                <p>
+                    Le géant européen du fitness confirme une intrusion exposant les données d'un million de clients dans six pays, incluant les IBAN et dates de naissance. Cet événement rappelle l'importance de la réactivité en cas d'incident : l'entreprise a dû appliquer l'article 33 du RGPD en notifiant les autorités sous 72 heures.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : ZDNet France
                 </div>
             </article>
 
             <article class="news-card">
                 <span class="news-date">Janvier 2026</span>
-                <h3>Microsoft Copilot for Security se généralise</h3>
+                <h3>ManoMano : Le danger des accès sous-traitants</h3>
                 <div class="news-tags">
-                    <span class="tag-news">Microsoft</span>
-                    <span class="tag-news">SOC</span>
+                    <span class="tag-news">Supply Chain</span>
+                    <span class="tag-news">MFA</span>
                 </div>
                 <p>
-                    L'outil d'assistance par IA de Microsoft pour les analystes SOC est désormais déployé massivement. Il permet de résumer des incidents complexes en quelques secondes et de proposer des scripts de remédiation PowerShell automatiquement. Une révolution pour la réactivité des équipes SISR face aux alertes.
+                    Des cybercriminels ont compromis un compte appartenant à un agent externe du service client de ManoMano. Les pirates ont pu exfiltrer les historiques de conversation de nombreux clients. Une démonstration par l'exemple qu'une politique stricte d'authentification multifacteur (MFA) doit s'appliquer à tous les prestataires externes.
                 </p>
                 <div class="news-source">
-                    <i class="fas fa-link"></i> Source : Blog Microsoft Security
+                    <i class="fas fa-link"></i> Source : Le Mag IT
                 </div>
             </article>
 
             <article class="news-card">
-                <span class="news-date">Octobre 2025</span>
-                <h3>Directive NIS 2 : L'heure du bilan</h3>
+                <span class="news-date">Décembre 2025</span>
+                <h3>France Travail & Missions Locales : Ciblages institutionnels</h3>
                 <div class="news-tags">
-                    <span class="tag-news">Législation</span>
-                    <span class="tag-news">Conformité</span>
+                    <span class="tag-news">Exfiltration</span>
+                    <span class="tag-news">Ingénierie Sociale</span>
                 </div>
                 <p>
-                    Un an après son entrée en vigueur, la directive européenne NIS 2 a forcé des milliers d'entreprises à revoir leur architecture réseau. Le modèle "Zero Trust" (segmentation réseau, MFA partout) est devenu le standard technique pour répondre aux exigences de conformité imposées par l'ANSSI.
+                    Une cybermalveillance a conduit à l'extraction illégitime des données de 1,6 million de jeunes inscrits aux Missions Locales. Les données extraites (noms, e-mails, numéros de sécurité sociale) offrent aux attaquants une base parfaite pour lancer des campagnes de phishing très sophistiquées et crédibles.
                 </p>
                 <div class="news-source">
-                    <i class="fas fa-link"></i> Source : ANSSI
+                    <i class="fas fa-link"></i> Source : Cyberguerre / Numerama
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Août 2025</span>
+                <h3>Air France-KLM : Piratage par rebond via le CRM</h3>
+                <div class="news-tags">
+                    <span class="tag-news">SaaS</span>
+                    <span class="tag-news">Supply Chain</span>
+                </div>
+                <p>
+                    Une attaque ciblant non pas directement la compagnie aérienne, mais un de ses prestataires utilisant l'outil cloud Salesforce. Les e-mails et numéros "Flying Blue" de nombreux clients ont été exposés, prouvant que les outils SaaS tiers nécessitent des audits de sécurité tout aussi rigoureux que l'infrastructure interne.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : The Hacker News
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Août 2025</span>
+                <h3>Bouygues Telecom : Données contractuelles exposées</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Télécoms</span>
+                    <span class="tag-news">Base de données</span>
+                </div>
+                <p>
+                    Une fuite majeure touche 6,4 millions de clients de l'opérateur. Les attaquants ont mis la main sur des données contractuelles sensibles, incluant les IBAN. La gestion stricte des droits d'accès aux bases de données clients reste un défi permanent pour les grands groupes.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : L'Usine Digitale
                 </div>
             </article>
 
             <article class="news-card">
                 <span class="news-date">Juin 2025</span>
-                <h3>La fin des mots de passe ? Le Passkey s'impose</h3>
+                <h3>Disneyland Paris : Le chantage à la donnée</h3>
                 <div class="news-tags">
-                    <span class="tag-news">Authentification</span>
-                    <span class="tag-news">FIDO2</span>
+                    <span class="tag-news">Double Extorsion</span>
+                    <span class="tag-news">Ransomware</span>
                 </div>
                 <p>
-                    Google et Apple annoncent que 60% des connexions se font désormais via "Passkeys" (clés d'accès biométriques). Pour les administrateurs systèmes, cela implique une mise à jour des gestionnaires d'identité (Azure AD, Okta) pour supporter nativement ces protocoles FIDO2 et réduire les risques liés au vol de mots de passe.
+                    Le groupe cybercriminel Anubis s'infiltre dans les serveurs du parc et dérobe 64 Go de données internes. Cet incident illustre la technique de la <strong>double extorsion</strong> : avant de chiffrer ou détruire le réseau, les pirates volent les données pour faire chanter l'entreprise sous la menace d'une divulgation publique.
                 </p>
                 <div class="news-source">
-                    <i class="fas fa-link"></i> Source : Le Monde Informatique
+                    <i class="fas fa-link"></i> Source : Le Journal du Hacker
                 </div>
             </article>
 
             <article class="news-card">
                 <span class="news-date">Mars 2025</span>
-                <h3>Vulnérabilité critique sur les pare-feux Fortinet</h3>
+                <h3>La Poste : Attaque combinée (DDoS + Vol)</h3>
                 <div class="news-tags">
-                    <span class="tag-news">Faille</span>
-                    <span class="tag-news">Patch</span>
+                    <span class="tag-news">DDoS</span>
+                    <span class="tag-news">Fuite ciblée</span>
                 </div>
                 <p>
-                    Découverte d'une faille "Zero Day" permettant l'exécution de code à distance sur les VPN SSL Fortigate. Cet événement rappelle l'importance cruciale du "Patch Management" automatisé, une compétence clé du technicien SISR. Les correctifs ont été déployés en moins de 48h par les équipes réactives.
+                    Une attaque par Déni de Service (DDoS) est utilisée comme écran de fumée pour perturber les équipes de sécurité. Pendant que les administrateurs tentent de rétablir les serveurs, les attaquants en profitent pour exfiltrer discrètement les données de plus de 50 000 utilisateurs.
                 </p>
                 <div class="news-source">
-                    <i class="fas fa-link"></i> Source : CERT-FR (Avis de sécurité)
+                    <i class="fas fa-link"></i> Source : Global Security Mag
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Février 2025</span>
+                <h3>Conforama : L'enjeu du chiffrement des bases</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Retail</span>
+                    <span class="tag-news">Data at Rest</span>
+                </div>
+                <p>
+                    L'enseigne d'ameublement déclare la compromission de données appartenant à 9,4 millions de clients. Cet événement a rappelé aux professionnels de l'IT l'obligation de chiffrer les informations critiques au repos (Data at Rest) au sein des bases SQL, pour rendre le butin inutilisable en cas d'exfiltration.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : ANSSI (Bulletin de sécurité)
+                </div>
+            </article>
+
+            <article class="news-card">
+                <span class="news-date">Février 2025</span>
+                <h3>Fédération Française de Football : Le monde sportif ciblé</h3>
+                <div class="news-tags">
+                    <span class="tag-news">Association</span>
+                    <span class="tag-news">Phishing</span>
+                </div>
+                <p>
+                    Piratage majeur visant les infrastructures de la FFF, exposant les données de 3 millions de licenciés et bénévoles. Les données volées (souvent des mineurs et leurs parents) sont revendues sur le dark web, alimentant massivement le marché de la revente de données pour les futures attaques ciblées.
+                </p>
+                <div class="news-source">
+                    <i class="fas fa-link"></i> Source : L'Équipe / Rubrique Cyber
                 </div>
             </article>
 
         </div>
+
+        <section class="solutions-section">
+            <h3><i class="fas fa-lock"></i> Solutions et Bonnes Pratiques</h3>
+            <p style="color: var(--text-secondary); text-align: center; margin-bottom: 25px;">
+                Face à ces menaces constantes, plusieurs mesures préventives et correctives s'imposent en entreprise :
+            </p>
+            <ul class="solutions-list">
+                <li>
+                    <i class="fas fa-key"></i>
+                    <div>
+                        <strong>Généralisation du MFA et Zero Trust :</strong> Imposer l'authentification multifacteur (MFA) à tous les niveaux, en particulier pour les accès distants et les prestataires (principe du moindre privilège).
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <strong>Sécurisation par conception  :</strong> Tester systématiquement les API (pour éviter les failles IDOR comme pour l'ANTS) et chiffrer les données sensibles dans les bases (Data at Rest).
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>Sensibilisation des collaborateurs :</strong> Former régulièrement les équipes à repérer le phishing et les malwares (InfoStealers) qui sont souvent la porte d'entrée initiale des attaquants.
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-search"></i>
+                    <div>
+                        <strong>Audits et gestion des correctifs :</strong> Réaliser des tests d'intrusion (pentests) réguliers et appliquer rapidement les correctifs de sécurité sur les serveurs et les outils Cloud.
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-clipboard-check"></i>
+                    <div>
+                        <strong>Cartographie et conformité RGPD :</strong> Savoir exactement où se trouvent les données sensibles de l'entreprise pour pouvoir réagir rapidement et alerter la CNIL sous 72h en cas d'incident majeur.
+                    </div>
+                </li>
+            </ul>
+        </section>
 
     </main>
 

@@ -63,3 +63,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+document.querySelectorAll('.doc-link').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('pdf-frame').src = this.href;
+    document.getElementById('pdf-modal').classList.add('active');
+  });
+});
+
+function closePdf() {
+  document.getElementById('pdf-modal').classList.remove('active');
+  document.getElementById('pdf-frame').src = '';
+}
+
+document.getElementById('pdf-modal').addEventListener('click', function (e) {
+  if (e.target === this) closePdf();
+});

@@ -3,61 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>                | Accueil</title>
-    
+    <title>Jolan Lavarenne | Portfolio BTS SIO SISR</title>
+    <meta name="description" content="Portfolio de Jolan Lavarenne, étudiant en BTS SIO option SISR : projets, stages et veille technologique.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Style spécifique pour centrer le contenu de l'accueil */
-        .home-content {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: var(--nav-height);
-        }
-        
-        .main-title {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
-
     <header></header>
 
-    <main class="container home-content">
-        <span style="color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; display:block; margin-bottom:10px;">Bonjour, je suis</span>
-        
-        <h1 class="main-title">Jolan Lavarenne</h1>
-        <p class="subtitle">Étudiant en BTS SIO</p>
-        
-        <p style="color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; font-size: 1.1rem;">
-            Bienvenue sur mon portfolio. Passionné par l'informatique, je regroupe ici mes projets, mes stages et ma veille technologique.
-        </p>
-        
-        <div style="display: flex; gap: 20px;">
-            <a href="cv.html" class="btn btn-primary">Voir mon CV</a>
-        </div>
-    </main>
-    
-    <footer>© 2026 Jolan Lavarenne - Portfolio BTS SIO</footer>
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1>Jolan Lavarenne</h1>
+                <p class="subtitle">Étudiant en BTS SIO, option SISR</p>
+                <p class="lead">Passionné par l'informatique, je regroupe ici mes projets, mes stages et ma veille technologique.</p>
+                <div class="tags skills">
+                    <span class="tag">Windows et Linux</span><span class="tag">Virtualisation</span><span class="tag">Cisco Packet Tracer</span>
+                    <span class="tag">Docker</span><span class="tag">PowerShell et Batch</span><span class="tag">SQL</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="cv.html" class="btn btn-primary">Voir mon CV</a>
+                    <a href="projets.html" class="btn btn-secondary">Mes projets</a>
+                </div>
+            </div>
 
+            <div class="hero-diagram">
+                <svg viewBox="0 0 520 300" role="img" aria-label="Schéma réseau : trois postes reliés à un switch, puis deux routeurs et un serveur">
+                    <path class="cable blue" pathLength="1" d="M100 60 H135 V138 H170"/>
+                    <path class="cable blue" pathLength="1" d="M100 150 H170"/>
+                    <path class="cable blue" pathLength="1" d="M100 240 H135 V162 H170"/>
+                    <path class="cable amber" pathLength="1" d="M250 150 H290"/>
+                    <path class="cable green" pathLength="1" d="M360 150 H400"/>
+                    <path class="cable green" pathLength="1" d="M435 178 V232"/>
+                    <rect class="node" x="20" y="40" width="80" height="40" rx="6"/><text class="node-label" x="60" y="65">Poste</text>
+                    <rect class="node" x="20" y="130" width="80" height="40" rx="6"/><text class="node-label" x="60" y="155">Poste</text>
+                    <rect class="node" x="20" y="220" width="80" height="40" rx="6"/><text class="node-label" x="60" y="245">Poste</text>
+                    <rect class="node" x="170" y="120" width="80" height="60" rx="6"/><text class="node-label" x="210" y="155">Switch</text>
+                    <rect class="node" x="290" y="120" width="70" height="60" rx="6"/><text class="node-label" x="325" y="155">R1</text>
+                    <rect class="node" x="400" y="120" width="70" height="60" rx="6"/><text class="node-label" x="435" y="155">R2</text>
+                    <rect class="node" x="395" y="232" width="80" height="40" rx="6"/><text class="node-label" x="435" y="257">Serveur</text>
+                </svg>
+            </div>
+        </section>
+
+        <nav class="quick" aria-label="Accès rapide">
+            <a href="projets.html"><strong>Projets</strong><span>19 TP, 2 TD et la certification SecNumacadémie</span></a>
+            <a href="veille.html"><strong>Veille</strong><span>Les fuites de données en 2025-2026</span></a>
+            <a href="stage-sio1.html"><strong>Stages</strong><span>Première et deuxième année</span></a>
+        </nav>
+    </main>
+
+    <footer>&copy; 2026 Jolan Lavarenne - Portfolio BTS SIO</footer>
     <script src="menu.js"></script>
 </body>
 </html>

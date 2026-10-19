@@ -7,72 +7,59 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Ajustement pour que le contenu ne soit pas caché par le menu fixe */
-        .stage-section {
-            padding-top: calc(var(--nav-height) + 60px);
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        /* Style de la carte "En attente" */
-        .card-future {
-            background-color: var(--card-bg);
-            padding: 60px 40px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-            font-weight: 600;
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
     <header></header>
 
     <main class="container stage-section">
-        
         <h1>Stage de 1ère Année</h1>
         <span class="subtitle">BTS SIO - Option SISR</span>
 
-        <div class="card-future">
-            <div style="font-size: 50px; margin-bottom: 20px;">⏳</div>
-            
-            <h2 style="font-size: 1.8rem; color: var(--text-primary); margin-bottom: 20px;">Prochainement</h2>
-            
-            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6;">
-                Mon premier stage en entreprise est prévu du <strong style="color: var(--text-primary);">1er juin au 26 juin 2026</strong>.
-            </p>
-            
-            <p style="color: var(--text-secondary); margin-bottom: 40px; line-height: 1.6;">
-                Cette page sera mise à jour à l'issue de ma période de formation avec mon rapport de stage, les missions effectuées et les compétences acquises.
-            </p>
-            
-            <div>
-                <a href="index.html" class="btn btn-primary">← Retour à l'accueil</a>
-            </div>
-        </div>
+        <div class="report">
+            <dl class="facts">
+                <div><dt>Entreprise</dt><dd>HVF Prod</dd></div>
+                <div><dt>Période</dt><dd>Du 1er au 26 juin 2026</dd></div>
+                <div><dt>Environnements</dt><dd>Windows Server, Debian Server</dd></div>
+            </dl>
 
+            <section>
+                <h2>Contexte</h2>
+                <p>J'ai effectué mon premier stage au sein de HVF Prod, où j'ai travaillé en autonomie sur des environnements serveur Windows et Linux. J'ai pris l'initiative de monter et de configurer plusieurs services, en m'appuyant sur ce que j'avais vu en cours.</p>
+            </section>
+
+            <section>
+                <h2>Missions réalisées</h2>
+                <ul>
+                    <li><strong>Windows Server :</strong> prise en main du serveur et configuration de son adressage IPv4.</li>
+                    <li><strong>Debian Server :</strong> mise en place de SSH pour l'accès distant, d'un partage de fichiers et d'un serveur web.</li>
+                    <li><strong>VPN :</strong> installation et configuration d'un VPN.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Compétences mobilisées</h2>
+                <ul>
+                    <li>Administration de systèmes Windows et Linux.</li>
+                    <li>Déploiement de services sous Linux : SSH, partage de fichiers, serveur web.</li>
+                    <li>Configuration réseau (adressage IPv4).</li>
+                    <li>Mise en place d'un accès distant sécurisé (VPN).</li>
+                    <li>Autonomie et recherche de solutions par moi-même.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Bilan</h2>
+                <p>Ce stage m'a permis de mettre en pratique, sur des serveurs Windows et Debian, des notions vues en cours : adressage IPv4, accès distant, partage de fichiers, serveur web et VPN.</p>
+                <p>J'y ai surtout développé mon autonomie et mon sens de l'initiative : choisir ce qu'il fallait mettre en place, chercher les solutions par moi-même et mener chaque configuration jusqu'au bout.</p>
+            </section>
+
+            <a href="index.html" class="btn btn-secondary">&larr; Retour à l'accueil</a>
+        </div>
     </main>
 
     <footer>
